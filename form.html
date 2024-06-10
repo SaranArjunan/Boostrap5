@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="name" name="name" placeholder="enter the name">
+    <br>
+    <span style="color:red" id="NameError"></span>
+    <br>
+    <input type="email" id="email" placeholder="enter the email">
+    <span style="color:red" id="EmailError"></span>
+    <button class="submit-btn" id="submit-btn">submit</button>
+    <h2 style="color:gray" id="success-message"></h2>
+    <script>
+        document.getElementById("submit-btn").addEventListener("click", function() {
+            var UserName=document.getElementById('name').value;
+            var Email=document.getElementById('email').value;
+            if(UserName=="" || UserName==null) {
+              document.getElementById('NameError').innerHTML += '*Name is Required';
+
+            }else if(UserName.length <=5){
+                document.getElementById('NameError').innerHTML += '*Name should by 5 char';
+            }
+            else if(Email =="" || Email==null){
+                document.getElementById('EmailError').innerHTML += '*Email is Required';
+            }else{
+                document.getElementById('success-message').innerHTML += 'Form submited';
+                setTimeout(()=>{
+                    location.reload();
+                },3000)
+                
+            }
+           
+});
+    </script>
+</body>
+</html>
